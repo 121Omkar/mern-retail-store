@@ -1,0 +1,27 @@
+.pr {
+	width: 21rem;
+	margin-top: 2rem;
+	background-color: aliceblue;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+}
+
+@media (max-width: 1500px) {
+	.pr {
+		width: 20rem;
+	}
+}
+
+@media (max-width: 1150px) {
+	.pr {
+		width: 21rem;
+	}
+}
+
+@media (max-width: 765px) {
+	.pr {
+		width: auto;
+	}
+}
