@@ -1,22 +1,20 @@
 import "./Product.css"
 import React from 'react';
-import {Card} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
-const Product = () => {
+const Product = ({imageUrl, name, price, description, productId}) => {
 	return (
-		<Card className="pr">
-		<Card.Img variant="top" src="https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80" />
-		<Card.Body>
-		<Card.Title>Card Title</Card.Title>
-		<Card.Text><i className="fas fa-rupee-sign">499</i></Card.Text>
-		<Card.Text>
-			Some quick example text to build on the card title and make up the bulk of
-			the card's content.
-		</Card.Text>
-		<Link to={`/product/${111}`}>View</Link>
-		</Card.Body>
-		</Card>
+		<div className="pr card">
+		<img className="card-img-top" src={imageUrl}  alt={productId}/>
+		<div className="card-body">
+			<div className="card-title">{name}</div>
+			<div className="card-text"><i className="fas fa-rupee-sign">{price}</i></div>
+			<div className="card-text">
+				{description}....
+			</div>
+			<Link to={`/products/${productId}`} className="btn btn-dark w-100">View</Link>
+		</div>
+		</div>
 	);
 };
 
