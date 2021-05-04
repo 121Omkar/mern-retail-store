@@ -7,7 +7,7 @@ const CartItem = ({item, qtyChangeHandler, renoveHandler}) => {
 		<Card style={{display:'grid', gridTemplateColumns:"1fr 4fr 1fr 1fr 1fr", alignItems:"center", boxShadow:"0 1px 4px rgba(0, 0, 0, 0.4)", padding:"1rem", gap:"8px"}}>
 			<Card.Img variant="top" src={item.imageUrl} alt={item.name}>
 			</Card.Img>
-			<Link to={`/product/${item.product}`}><Card.Title>{item.name}</Card.Title></Link>
+			<Link to={`/products/${item.product}`}><Card.Title>{item.name}</Card.Title></Link>
 			<Card.Title style={{alignItems:"center", height:"", margin:"0px"}}>Price: <i className="fas fa-rupee-sign">{item.price}</i></Card.Title>
 			<select value={item.qty} onChange={(e) => qtyChangeHandler(item.product, e.target.value)}>
 				{[...Array(item.countInStock).keys()].map(x =>(
