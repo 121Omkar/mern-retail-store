@@ -45,5 +45,5 @@ export const removeProductDetails = () => async (dispatch) => {
 	dispatch({type: actionTypes.GET_PRODUCT_DETAILS_RESET});
 	dispatch({
 		type:actionTypes.GET_PRODUCT_DETAILS_RESET,
-	})
+	});
 };

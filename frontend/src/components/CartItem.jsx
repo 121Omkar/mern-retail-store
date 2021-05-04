@@ -1,27 +1,23 @@
-import "./CartItem.css"
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import {Card, Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
-const CartItem = () => {
+const CartItem = ({item, qtyChangeHandler, renoveHandler}) => {
 	return (
-		<div className="ci">
-			<div className="cimg">
-			<img src="https://images.unsplash.com/photo-1605787020600-b9ebd5df1d07?ixid=MXwxMjA3fDB8
-					MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1463&q=80" alt="product"/>
-			</div>
-			<Link to={`/product/${111}`}><p className="cname">Product 1</p></Link>
-			<p className="cprice">Price: <i className="fas fa-rupee-sign">499</i></p>
-			<select>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
+		<Card style={{display:'grid', gridTemplateColumns:"1fr 4fr 1fr 1fr 1fr", alignItems:"center", boxShadow:"0 1px 4px rgba(0, 0, 0, 0.4)", padding:"1rem", gap:"8px"}}>
+			<Card.Img variant="top" src={item.imageUrl} alt={item.name}>
+			</Card.Img>
+			<Link to={`/product/${item.product}`}><Card.Title>{item.name}</Card.Title></Link>
+			<Card.Title style={{alignItems:"center", height:"", margin:"0px"}}>Price: <i className="fas fa-rupee-sign">{item.price}</i></Card.Title>
+			<select value={item.qty} onChange={(e) => qtyChangeHandler(item.product, e.target.value)}>
+				{[...Array(item.countInStock).keys()].map(x =>(
+					<option key={x+1} value={x+1}>{x+1}</option>
+				))}
 			</select>
-
-			<button>
+			<Button className="btn btn-danger" onClick={() => renoveHandler(item.product)}>
 				<i className="fa fa-trash" aria-hidden="true"></i>
-			</button>
-		</div>
+			</Button>
+		</Card>
 	)
 }
 
