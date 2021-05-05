@@ -12,6 +12,8 @@
 
 ```sh
 npm install
+cd frontend
+npm install
 ```
 
 ## Usage
